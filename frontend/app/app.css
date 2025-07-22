@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Radley:ital@0;1&display=swap");
+@import "tailwindcss";
+
+html {
+  height: fit-content;
+  min-height: 100vh;
+  display: flex;
+  min-width: 100vw;
+  align-items: stretch;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  margin-bottom: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#nav-h6 {
+  font-family: "Radley", serif !important;
+}
+
+.navbar a:not(#nav-h6),
+p {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.05rem !important;
+}
+
+span {
+  font-family: "Montserrat", sans-serif !important;
+
+  font-weight: 500 !important;
+}
+
+.swiper {
+  border-radius: 25px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #5b7553;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #5b7553;
+}

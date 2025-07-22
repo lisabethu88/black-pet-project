@@ -1,0 +1,208 @@
+import type { StoryType } from "~/types";
+import type { PetfinderPet } from "~/types";
+
+export const stories = [
+  {
+    id: "1",
+    petName: "Shadow",
+    speciesBreed: "Dog - Black Labrador",
+    title: "Shadow Finds a Family",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie, orci sed vehicula auctor, nulla metus luctus magna, non sollicitudin risus lorem vel arcu. Phasellus lacinia nunc sed tellus pellentesque, vel lobortis ipsum vulputate. Nullam augue eros, pellentesque et arcu at, ultrices finibus eros. Nulla risus quam, porta eget dictum a, vestibulum at arcu. Fusce est purus, vestibulum vitae mattis eu, congue non nibh. Nulla accumsan nisl non tempor vulputate. Morbi vestibulum posuere ex, vel fringilla odio scelerisque id. Mauris dictum molestie arcu, eget sagittis leo laoreet in. Quisque massa sapien, maximus ut euismod id, vulputate at magna. Nullam nec egestas ex, ac fermentum eros. Suspendisse sollicitudin tortor ultricies sapien ultrices consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Sed nec magna faucibus, commodo sapien eu, tristique ipsum. Quisque id aliquet diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris hendrerit metus ex, sit amet imperdiet libero viverra a. Pellentesque id odio sed sem ultrices tincidunt. Nullam eleifend gravida eros ac congue. Aliquam erat volutpat.Cras ullamcorper sagittis lorem quis scelerisque. Donec facilisis hendrerit purus sed dignissim. Praesent id lacus vestibulum, efficitur diam eu, malesuada nulla. Vestibulum ullamcorper est felis, et laoreet eros venenatis et. Morbi finibus facilisis turpis, ac vulputate ipsum sodales vitae. Praesent ac consequat erat, ac tempor lacus. Nulla gravida ex magna, vitae suscipit sapien sodales at. Morbi eu fringilla elit. Phasellus feugiat magna in nunc interdum tincidunt. Phasellus tincidunt facilisis est. Proin ut dolor a libero lobortis tempor. Phasellus rutrum est tellus, condimentum sollicitudin augue accumsan nec. Nam rutrum justo quis vulputate dapibus. Sed justo sem, pharetra eget hendrerit consectetur, mollis non massa. Sed volutpat urna in consequat varius. Phasellus laoreet est eget sapien elementum vehicula. Pellentesque et ullamcorper purus, a dapibus tellus. Nam neque felis, luctus vitae lectus eu, posuere vestibulum tortor. Donec at felis ac ipsum tincidunt ullamcorper. Nullam nulla leo, luctus eget nulla a, molestie luctus ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam bibendum, risus vel ultrices maximus, turpis ligula lobortis leo, ut tempor purus elit in augue. Sed rutrum ex sed convallis viverra. Quisque aliquam tortor eget lacus mattis, in rutrum eros commodo. In et viverra purus. Etiam suscipit sit amet nulla quis fermentum. Sed consectetur ornare urna, at tincidunt nibh cursus id. Etiam tempus mattis diam, non molestie nunc ullamcorper sed. Nam posuere velit ac ex dapibus, eu venenatis urna venenatis. Vivamus vehicula, elit ut lobortis vulputate, elit turpis consequat neque, eu ullamcorper nunc lectus quis turpis.",
+    imageUrl: "/black-cat.jpg",
+    author: "Emily T.",
+    submittedAt: "2025-07-10T14:23:00Z",
+    status: "approved",
+  },
+  {
+    id: "2",
+    petName: "Midnight",
+    speciesBreed: "Cat - Bombay",
+    title: "From Alley to Art Studio",
+    body: "Midnight was rescued from an alley downtown. He now lives with a local artist and often appears in her paintings and livestreams.",
+    imageUrl: "/cat-portrait.png",
+    author: "Jordan B.",
+    submittedAt: "2025-07-11T09:15:00Z",
+    status: "pending",
+    featured: true,
+  },
+  {
+    id: "3",
+    petName: "Luna",
+    speciesBreed: "Dog - Border Collie Mix",
+    title: "Luna Lights Up the Room",
+    body: "Luna's shy nature melted away once she joined her new home. She's now a therapy dog bringing joy to seniors at a local care center.",
+    imageUrl: "/kevin-chloe.png",
+    author: "Alicia M.",
+    submittedAt: "2025-07-12T16:45:00Z",
+    status: "approved",
+    featured: false,
+  },
+  {
+    id: "4",
+    petName: "Bear",
+    speciesBreed: "Dog - Newfoundland",
+    title: "Bear the Gentle Giant",
+    body: "Despite his size, Bear is the gentlest dog you’ll ever meet. He loves kids, fetch, and riding in the back of the pickup.",
+    imageUrl: "/contact-dogs.jpg.png",
+    author: "Chris D.",
+    submittedAt: "2025-07-13T12:10:00Z",
+    status: "pending",
+    featured: true,
+  },
+] as StoryType[];
+
+export const dummyPets: PetfinderPet[] = [
+  {
+    id: 1001,
+    name: "Shadow",
+    species: "Dog",
+    breeds: {
+      primary: "Labrador Retriever",
+      secondary: null,
+      mixed: false,
+      unknown: false,
+    },
+    age: "Adult",
+    gender: "Male",
+    size: "Large",
+    coat: "Short",
+    colors: {
+      primary: "Black",
+      secondary: null,
+      tertiary: null,
+    },
+    description:
+      "Shadow is a playful and loyal companion. He loves long walks, squeaky toys, and being around people.",
+    photos: [
+      {
+        small: "https://placedog.net/200/200",
+        medium: "https://placedog.net/400/300",
+        large: "https://placedog.net/600/400",
+        full: "https://placedog.net/800/600",
+      },
+    ],
+    distance: 12.5,
+    contact: {
+      address: {
+        city: "New York",
+        state: "NY",
+        postcode: "10001",
+        country: "US",
+      },
+      email: "shadow.shelter@example.com",
+      phone: "555-123-4567",
+    },
+    attributes: {
+      spayed_neutered: true,
+      house_trained: true,
+      special_needs: false,
+      shots_current: true,
+    },
+    environment: {
+      children: true,
+      dogs: true,
+      cats: false,
+    },
+    url: "https://www.petfinder.com/dog/shadow-1001",
+  },
+  {
+    id: 1002,
+    name: "Luna",
+    species: "Cat",
+    breeds: {
+      primary: "Domestic Shorthair",
+      secondary: null,
+      mixed: false,
+      unknown: false,
+    },
+    age: "Young",
+    gender: "Female",
+    size: "Small",
+    coat: "Short",
+    colors: {
+      primary: "Black",
+      secondary: null,
+      tertiary: null,
+    },
+    description:
+      "Luna is a curious, quiet cat who enjoys sunbathing and snuggles. She’s perfect for a calm home.",
+    photos: [
+      {
+        small: "https://placedog.net/201/200",
+        medium: "https://placedog.net/401/300",
+        large: "https://placedog.net/601/400",
+        full: "https://placedog.net/801/600",
+      },
+    ],
+    distance: 6.8,
+    contact: {
+      address: {
+        city: "San Francisco",
+        state: "CA",
+        postcode: "94110",
+        country: "US",
+      },
+      email: "luna.shelter@example.com",
+      phone: "555-234-5678",
+    },
+    attributes: {
+      spayed_neutered: true,
+      house_trained: true,
+      declawed: true,
+      special_needs: false,
+      shots_current: true,
+    },
+    environment: {
+      children: true,
+      dogs: false,
+      cats: true,
+    },
+    url: "https://www.petfinder.com/cat/luna-1002",
+  },
+  {
+    id: 1003,
+    name: "Bear",
+    species: "Dog",
+    breeds: {
+      primary: "Newfoundland",
+      secondary: "Mix",
+      mixed: true,
+      unknown: false,
+    },
+    age: "Senior",
+    gender: "Male",
+    size: "XLarge",
+    coat: "Long",
+    colors: {
+      primary: "Black",
+      secondary: null,
+      tertiary: null,
+    },
+    description:
+      "Bear is a mellow senior who enjoys relaxing in the sun and receiving gentle pets. Great for a peaceful household.",
+    photos: [],
+    distance: 18.1,
+    contact: {
+      address: {
+        city: "Chicago",
+        state: "IL",
+        postcode: "60614",
+        country: "US",
+      },
+      email: "bear.shelter@example.com",
+      phone: "555-345-6789",
+    },
+    attributes: {
+      spayed_neutered: true,
+      house_trained: true,
+      special_needs: true,
+      shots_current: false,
+    },
+    environment: {
+      children: false,
+      dogs: false,
+      cats: false,
+    },
+    url: "https://www.petfinder.com/dog/bear-1003",
+  },
+];
