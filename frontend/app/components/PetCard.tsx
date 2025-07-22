@@ -15,7 +15,7 @@ interface PetCardProps {
 }
 
 const PetCard = ({ pet }: PetCardProps) => {
-  const mainPhoto = pet.photos?.[0]?.medium || "/placeholder.jpg";
+  const mainPhoto = pet.photos?.[0]?.medium || "/placeholder.png";
 
   return (
     <Card sx={{ height: "100%", borderRadius: 5 }}>
