@@ -36,7 +36,7 @@ const AdminStoryCard = ({ story, isAdmin = false }: AdminStoryCardProps) => {
           component="img"
           image={story.imageUrl}
           alt={story.title}
-          sx={{ objectFit: "cover", height: 200, cursor: "pointer" }}
+          sx={{ objectFit: "cover", height: 350, cursor: "pointer" }}
         />
 
         <CardContent sx={{ flexGrow: 1 }}>

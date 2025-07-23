@@ -20,7 +20,7 @@ const StoryCard = ({ story }: StoryCardProps) => {
         component="img"
         image={story.imageUrl}
         alt={story.title}
-        sx={{ objectFit: "cover", height: 200 }}
+        sx={{ objectFit: "cover", height: 350 }}
       />
 
       <CardContent sx={{ flexGrow: 1 }}>
