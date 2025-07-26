@@ -10,7 +10,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
+// dont use in production
+// $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $host = $_ENV['DB_HOST'];
@@ -41,8 +42,6 @@ try {
     $countStmt = $pdo->query("SELECT COUNT(*) FROM stories");
     $totalCount = (int) $countStmt->fetchColumn();
     $totalPages = ceil($totalCount / $limit);
-
-
 
 
     // Output results (JSON encoded)
