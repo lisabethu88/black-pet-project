@@ -48,7 +48,7 @@ export default function AdminPage() {
         return res.json();
       })
       .then((data) => {
-        setStories(data);
+        setStories(data.data);
         setLoading(false);
       })
       .catch((err) => {
