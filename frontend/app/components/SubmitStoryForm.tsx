@@ -14,6 +14,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 const SubmitStoryForm = () => {
+  const API_URL = import.meta.env.VITE_RENDER_URL;
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
@@ -81,7 +82,7 @@ const SubmitStoryForm = () => {
       status: "pending",
     };
 
-    fetch("http://localhost:8000/submit_story.php", {
+    fetch(`${API_URL}/submit_story.php`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newStory),

@@ -11,9 +11,10 @@ const StoriesPage = () => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/fetch_stories.php?page=${page}`)
+    fetch(`${API_URL}/fetch_stories.php?page=${page}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

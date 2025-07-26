@@ -17,6 +17,7 @@ interface AdminSettingsProps {
   onDelete?: () => void;
 }
 import DeleteIcon from "@mui/icons-material/Delete";
+const API_URL = import.meta.env.VITE_RENDER_URL;
 
 const AdminSettings = ({
   initialFeatured = false,
@@ -85,7 +86,7 @@ const AdminSettings = ({
           color="error"
           onClick={() => {
             if (confirm("Are you sure you want to delete this story?")) {
-              fetch(`http://localhost:8000/remove_story.php?id=${storyId}`, {
+              fetch(`${API_URL}/remove_story.php?id=${storyId}`, {
                 method: "DELETE",
               })
                 .then((res) => {

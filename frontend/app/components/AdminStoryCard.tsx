@@ -33,19 +33,17 @@ const AdminStoryCard = ({ story, setStories }: AdminStoryCardProps) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
 
   const updateFeatured = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:8000/update_featured.php",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ id: story.id, featured: !story.featured }),
-        }
-      );
+      const response = await fetch(`${API_URL}/update_featured.php`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: story.id, featured: !story.featured }),
+      });
 
       const result = await response.json();
 
@@ -68,7 +66,7 @@ const AdminStoryCard = ({ story, setStories }: AdminStoryCardProps) => {
         status: story.status == "pending" ? "approved" : "pending",
       });
 
-      const response = await fetch("http://localhost:8000/update_status.php", {
+      const response = await fetch(`${API_URL}/update_status.php`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

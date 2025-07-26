@@ -1,6 +1,7 @@
 import { Button, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect, useState, type SetStateAction } from "react";
+import LoadingCircle from "~/components/LoadingCircle";
 import PaginationButtons from "~/components/PaginationButtons";
 import PetCard from "~/components/PetCard";
 import type { PetfinderPet } from "~/types";
@@ -11,9 +12,11 @@ const PetsPage = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
+  console.log(API_URL);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/fetch_pets.php?page=${page}`)
+    fetch(`${API_URL}/fetch_pets.php?page=${page}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -29,6 +32,8 @@ const PetsPage = () => {
       });
   }, [page]);
 
+  if (loading) return <LoadingCircle />;
+  if (error) return null;
   return (
     <Box
       sx={{

@@ -12,9 +12,11 @@ const FeaturedStories = () => {
   const [stories, setStories] = useState<StoryType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
+
   useEffect(() => {
     // Data
-    fetch("http://localhost:8000/fetch_featured_stories.php")
+    fetch(`${API_URL}/fetch_featured_stories.php`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { dummyPets } from "~/data/DummyData";
 import { Pagination, Navigation } from "swiper/modules";
 import PetCard from "./PetCard";
 import { useState, useEffect } from "react";
@@ -9,9 +8,10 @@ import type { PetfinderPet } from "~/types";
 
 const RecentPetsSwiper = () => {
   const [pets, setPets] = useState<PetfinderPet[]>([]);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/fetch_recent_pets.php`)
+    fetch(`${API_URL}/fetch_recent_pets.php`)
       .then((res) => res.json())
       .then((data) => {
         setPets(data.animals);

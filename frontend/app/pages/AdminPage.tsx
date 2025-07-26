@@ -14,7 +14,7 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({} as User);
   const [checkingAuth, setCheckingAuth] = useState(true);
-  const API_URL = import.meta.env.VITE_RENDER_URL || "http://localhost:8000";
+  const API_URL = import.meta.env.VITE_RENDER_URL;
   // Data
   const [stories, setStories] = useState<StoryType[]>([]);
   const [loading, setLoading] = useState(true);

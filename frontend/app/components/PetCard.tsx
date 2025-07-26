@@ -48,7 +48,10 @@ const PetCard = ({ pet }: PetCardProps) => {
             <Chip
               label={pet.species}
               size="small"
-              sx={{ backgroundColor: "black", color: "white" }}
+              sx={{
+                backgroundColor: "rgba(0, 0, 0, 0.87)",
+                color: "#ebebeb",
+              }}
             />
             <Chip label={pet.age} size="small" />
           </Stack>

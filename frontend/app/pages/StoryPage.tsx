@@ -15,9 +15,10 @@ const StoryPage = () => {
   const [story, setStory] = useState<StoryType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const API_URL = import.meta.env.VITE_RENDER_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/fetch_story_by_id.php?id=${id}`)
+    fetch(`${API_URL}/fetch_story_by_id.php?id=${id}`)
       .then((res) => {
         if (!res.ok || res.headers.get("Content-Type")?.includes("text/html")) {
           throw new Error("Invalid response");
