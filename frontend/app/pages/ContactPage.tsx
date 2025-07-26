@@ -27,7 +27,7 @@ const ContactPage = () => {
       >
         <Box
           component="img"
-          src={isXs ? "/cat-landscape.png" : "/cat-portrait.png"}
+          src={isXs ? "/big-cat.png" : "/kitten.png"}
           sx={{
             maxWidth: { xs: "100%", md: 400 },
             margin: "1rem",

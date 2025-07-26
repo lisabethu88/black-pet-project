@@ -1,14 +1,15 @@
 export type StoryType = {
   id: string;
-  petName: string;
-  speciesBreed: string;
+  pet_name: string;
+  species: string;
+  breed?: string;
   title: string;
   body: string;
-  imageUrl: string;
+  image_url: string;
   author: string;
-  submittedAt: string;
+  submitted_at: string;
   status: "pending" | "approved";
-  featured?: boolean;
+  featured: boolean;
 };
 
 export type PetfinderPet = {
@@ -62,3 +63,8 @@ export type PetfinderPet = {
   };
   url: string;
 };
+
+export type FormErrors = Record<
+  "pet_name" | "species" | "breed" | "title" | "body" | "image_url" | "author",
+  boolean
+>;

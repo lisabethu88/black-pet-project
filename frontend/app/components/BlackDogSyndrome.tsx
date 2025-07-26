@@ -24,7 +24,7 @@ const BlackDogSyndrome = () => {
       >
         <Box
           component="img"
-          src="/dog-in-cage.png"
+          src="/bd-syndrome.png"
           alt="Black dog behind cage"
           sx={{
             width: "100%",

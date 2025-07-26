@@ -18,8 +18,8 @@ const HeroBanner = () => {
           color: "white",
           textAlign: "center",
           position: "relative",
-          height: "calc(100vh - 64px)", // 🟢 full viewport height
-          display: "flex", // 🟢 enable centering
+          height: "calc(100vh - 64px)",
+          display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}

@@ -1,12 +1,24 @@
 import { Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import StoryCard from "./StoryCard";
 import { dummyPets } from "~/data/DummyData";
 import { Pagination, Navigation } from "swiper/modules";
 import PetCard from "./PetCard";
+import { useState, useEffect } from "react";
+import type { PetfinderPet } from "~/types";
 
 const RecentPetsSwiper = () => {
+  const [pets, setPets] = useState<PetfinderPet[]>([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/fetch_recent_pets.php`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPets(data.animals);
+      });
+  }, []);
+
+  console.log(pets);
   return (
     <Box
       sx={{
@@ -24,7 +36,7 @@ const RecentPetsSwiper = () => {
         marginBottom={2}
         color={"white"}
       >
-        Meet Your New Best Friend!
+        Adopt a Black Pet Today!
       </Typography>
       <Swiper
         pagination={{
@@ -34,7 +46,7 @@ const RecentPetsSwiper = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {dummyPets.map((pet) => (
+        {pets.map((pet) => (
           <SwiperSlide>
             <PetCard pet={pet} />
           </SwiperSlide>

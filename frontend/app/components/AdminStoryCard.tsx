@@ -1,19 +1,25 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Card,
   CardContent,
   CardMedia,
-  Chip,
+  Paper,
   Stack,
   Typography,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import { useState } from "react";
 import ImageModal from "./ImageModal";
 import type { StoryType } from "~/types";
+import AdminSettings from "./AdminSettings";
 
 interface AdminStoryCardProps {
   story: StoryType;
-  isAdmin?: boolean;
+  setStories: React.Dispatch<React.SetStateAction<StoryType[]>>;
   originPage?: "Admin" | "Stories";
 }
 // To Do:
@@ -23,18 +29,75 @@ interface AdminStoryCardProps {
 // must: change format so it's easier to see information as an admin since we wont be using the storypage component
 // maybe: add a feature that lets you email the user with a message that their post was approved or not with suggestions for edits
 
-const AdminStoryCard = ({ story, isAdmin = false }: AdminStoryCardProps) => {
+const AdminStoryCard = ({ story, setStories }: AdminStoryCardProps) => {
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const updateFeatured = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8000/update_featured.php",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: story.id, featured: !story.featured }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Featured updated successfully:", result);
+      } else {
+        console.error("Error updating featured:", result);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+    }
+  };
+
+  const updateStatus = async () => {
+    try {
+      console.log("Function is running!");
+
+      console.log("Sending update:", {
+        id: story.id,
+        status: story.status == "pending" ? "approved" : "pending",
+      });
+
+      const response = await fetch("http://localhost:8000/update_status.php", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: story.id,
+          status: story.status === "pending" ? "approved" : "pending",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Featured updated successfully:", result);
+      } else {
+        console.error("Error updating status:", result);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+    }
+  };
+
   return (
     <>
       <Card sx={{ maxWidth: 345, height: "100%", borderRadius: 5 }}>
         <CardMedia
           onClick={handleOpen}
           component="img"
-          image={story.imageUrl}
+          image={story.image_url}
           alt={story.title}
           sx={{ objectFit: "cover", height: 350, cursor: "pointer" }}
         />
@@ -50,34 +113,53 @@ const AdminStoryCard = ({ story, isAdmin = false }: AdminStoryCardProps) => {
               {story.title}
             </Typography>
           </Stack>
-
           <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-            {story.petName} • {story.speciesBreed}
+            {story.pet_name} • {story.species} - {story.breed}
           </Typography>
-
-          <Typography variant="body2" sx={{ mb: 2 }} noWrap>
-            {story.body}
-          </Typography>
+          <Accordion sx={{ backgroundColor: "whitesmoke", borderRadius: 2 }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span">Full Story</Typography>
+            </AccordionSummary>
+            <AccordionDetails>{story.body}</AccordionDetails>
+          </Accordion>
 
           <Box mt="1rem">
             <Typography variant="caption" color="text.secondary">
               Submitted by {story.author} on{" "}
-              {new Date(story.submittedAt).toLocaleDateString()}
+              {new Date(story.submitted_at).toLocaleDateString()}
             </Typography>
           </Box>
-          {isAdmin && (
-            <Chip
-              label={story.status}
-              color={story.status === "approved" ? "success" : "warning"}
-              size="small"
+          <Paper
+            sx={{
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+              padding: 1,
+              backgroundColor: "whitesmoke",
+              borderRadius: 3,
+            }}
+          >
+            <AdminSettings
+              initialFeatured={story.featured}
+              initialStatus={story.status}
+              onFeaturedChange={updateFeatured}
+              onStatusChange={updateStatus}
+              storyId={story.id}
+              onDelete={() => {
+                setStories((prev) => prev.filter((s) => s.id !== story.id));
+              }}
             />
-          )}
+          </Paper>
         </CardContent>
       </Card>
       <ImageModal
         open={open}
         onClose={handleClose}
-        imageUrl={story.imageUrl}
+        imageUrl={story.image_url}
         alt={story.title}
       />
     </>

@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router";
 import HideOnScroll from "./HideOnScroll";
 
-const pages = ["about", "pets", "stories", "submit", "contact"];
+const pages = ["about", "pets", "stories", "submit", "contact", "admin"];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(

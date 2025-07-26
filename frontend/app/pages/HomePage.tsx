@@ -2,7 +2,7 @@
 // ├── <WhyBlackPetsSection />
 // ├── <JoinCommunityCTA />
 
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import BlackDogSyndrome from "~/components/BlackDogSyndrome";
 import FeaturedStories from "~/components/FeaturedStories";
 import HeroBanner from "~/components/HeroBanner";
@@ -17,6 +17,7 @@ const HomePage = () => {
       </Box>
       <Box sx={{ backgroundColor: "white" }}>
         <FeaturedStories />{" "}
+        <Typography></Typography>
       </Box>
       <Box sx={{ backgroundColor: "black" }}>
         <RecentPetsSwiper />

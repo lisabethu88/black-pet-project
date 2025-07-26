@@ -1,13 +1,9 @@
 import { Button } from "@mui/material";
 
-interface SubmitButtonProps {
-  handler: (e: React.FormEvent) => void;
-}
-const SubmitButton = ({ handler }: SubmitButtonProps) => {
+const SubmitButton = () => {
   return (
     <Button
       type="submit"
-      onSubmit={handler}
       variant="contained"
       size="large"
       sx={{

@@ -1,11 +1,45 @@
 import { Box, Grid } from "@mui/material";
 import StoryCard from "~/components/StoryCard";
-import { stories } from "../data/DummyData";
+import { useState, useEffect } from "react";
+import type { StoryType } from "~/types";
+import LoadingCircle from "~/components/LoadingCircle";
+import PaginationButtons from "~/components/PaginationButtons";
 
 const StoriesPage = () => {
+  const [stories, setStories] = useState<StoryType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/fetch_stories.php?page=${page}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => {
+        setStories(data.data);
+        setTotalPages(data.pagination.total_pages);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [page]);
+
+  if (loading) return <LoadingCircle />;
+  if (error) return <p>Error: {error}</p>;
   return (
-    <Box sx={{ padding: 5, flexGrow: 1 }}>
-      <Grid container spacing={2}>
+    <Box
+      sx={{
+        padding: 5,
+        flexGrow: 1,
+        width: "100%",
+      }}
+    >
+      <Grid container spacing={2} justifyContent={"center"}>
         {stories.map(
           (story) =>
             story.status == "approved" && (
@@ -15,6 +49,11 @@ const StoriesPage = () => {
             )
         )}
       </Grid>
+      <PaginationButtons
+        page={page}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
     </Box>
   );
 };

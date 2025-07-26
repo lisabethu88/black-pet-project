@@ -6,16 +6,23 @@ import {
   Stack,
   Typography,
   Chip,
+  Link,
 } from "@mui/material";
 import type { PetfinderPet } from "~/types"; // make sure you import the right type
-import PrimaryButton from "./PrimaryButton";
+import LinkButton from "./LinkButton";
 
 interface PetCardProps {
   pet: PetfinderPet;
 }
 
 const PetCard = ({ pet }: PetCardProps) => {
-  const mainPhoto = pet.photos?.[0]?.medium || "/placeholder.png";
+  const mainPhoto =
+    pet.photos?.[0]?.medium ||
+    (pet.species === "Dog"
+      ? "/placeholder.png"
+      : pet.species === "Cat"
+      ? "/cat.png"
+      : "/paw.png");
 
   return (
     <Card sx={{ height: "100%", borderRadius: 5 }}>
@@ -37,7 +44,14 @@ const PetCard = ({ pet }: PetCardProps) => {
             {pet.name}
           </Typography>
 
-          <Chip label={pet.age} size="small" />
+          <Stack direction="row" spacing={1}>
+            <Chip
+              label={pet.species}
+              size="small"
+              sx={{ backgroundColor: "black", color: "white" }}
+            />
+            <Chip label={pet.age} size="small" />
+          </Stack>
         </Stack>
 
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
@@ -48,13 +62,10 @@ const PetCard = ({ pet }: PetCardProps) => {
           {pet.description || "No description available."}
         </Typography>
 
-        <PrimaryButton path={pet.url} buttonText="View on Petfinder" />
-
+        <LinkButton to={pet.url} buttonText={"View on Petfinder"} />
         <Box mt={2}>
           <Typography variant="caption" color="text.secondary">
-            {pet.contact.address.postcode &&
-              `Located near ${pet.contact.address.postcode}`}
-            {pet.distance ? ` • ${pet.distance.toFixed(1)} miles away` : ""}
+            Located in {pet.contact.address.state}
           </Typography>
         </Box>
       </CardContent>

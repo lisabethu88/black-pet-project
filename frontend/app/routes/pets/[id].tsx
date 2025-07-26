@@ -30,5 +30,5 @@ export default function StoryDetailPage() {
 
   if (!story) return <div>Loading...</div>;
 
-  return <StoryPage story={story} />;
+  return <StoryPage />;
 }

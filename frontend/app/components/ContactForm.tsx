@@ -206,7 +206,7 @@ const ContactForm = () => {
         </FormHelperText>
       </FormControl>
       <br />
-      <SubmitButton handler={handleSubmit} />
+      <SubmitButton />
     </Box>
   );
 };
