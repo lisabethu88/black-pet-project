@@ -40,7 +40,7 @@ const PetCard = ({ pet }: PetCardProps) => {
           alignItems="center"
           mb={1}
         >
-          <Typography variant="h6" sx={{ color: "#5b7553", fontWeight: 700 }}>
+          <Typography variant="h5" sx={{ color: "#5b7553", fontWeight: 700 }}>
             {pet.name}
           </Typography>
 

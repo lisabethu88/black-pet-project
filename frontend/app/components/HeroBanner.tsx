@@ -38,7 +38,7 @@ const HeroBanner = () => {
             Black Pets Deserve Love, Too{" "}
             <FavoriteIcon sx={{ fontSize: "2.5rem", color: "red" }} />
           </Typography>
-          <Typography variant="h6" mb={4}>
+          <Typography variant="h5" mb={4}>
             Discover adoptable black pets waiting for a home!
           </Typography>
           <Box

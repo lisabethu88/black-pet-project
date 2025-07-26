@@ -56,7 +56,7 @@ const SubmitStoryForm = () => {
     const newErrors = {
       pet_name: formData.pet_name.trim() === "",
       species: formData.species.trim() === "",
-      breed: formData.breed?.trim() === "",
+      breed: false,
       title: formData.title.trim() === "",
       body: formData.body.trim() === "",
       image_url: formData.image_url.trim() === "",
@@ -181,7 +181,7 @@ const SubmitStoryForm = () => {
           helper: "e.g. Dog",
         },
         {
-          label: "Breed",
+          label: "Breed (Optional)",
           name: "breed",
           helper: "e.g. Lab mix",
         },

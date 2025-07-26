@@ -30,13 +30,13 @@ const StoryCard = ({ story }: StoryCardProps) => {
           alignItems="center"
           mb={1}
         >
-          <Typography variant="h6" sx={{ color: "#5b7553", fontWeight: 700 }}>
+          <Typography variant="h5" sx={{ color: "#5b7553", fontWeight: 700 }}>
             {story.title}
           </Typography>
         </Stack>
 
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-          {story.pet_name} • {story.species} - {story.breed}
+          {story.pet_name} • {story.species} {story.breed && `- ${story.breed}`}
         </Typography>
 
         <Typography variant="body2" sx={{ mb: 2 }} noWrap>
