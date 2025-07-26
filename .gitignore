@@ -7,4 +7,5 @@ build/
 /frontend/build/
 /frontend/.react-router/
 *.env
+.env.local
 ToDo.md
