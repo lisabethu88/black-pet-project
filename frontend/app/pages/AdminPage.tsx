@@ -14,6 +14,7 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({} as User);
   const [checkingAuth, setCheckingAuth] = useState(true);
+  const API_URL = import.meta.env.RENDER_URL || "http://localhost:8000";
   // Data
   const [stories, setStories] = useState<StoryType[]>([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,7 @@ export default function AdminPage() {
     checkSession();
 
     // Data
-    fetch("http://localhost:8000/fetch_stories.php")
+    fetch(`${API_URL}/fetch_stories.php`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
