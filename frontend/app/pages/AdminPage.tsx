@@ -114,7 +114,7 @@ export default function AdminPage() {
       >
         Log out
       </Button>
-      <Box sx={{ padding: 5, flexGrow: 1 }}>
+      <Box sx={{ padding: 1, flexGrow: 1 }}>
         <Grid container spacing={2}>
           {stories.map((story) => (
             <Grid

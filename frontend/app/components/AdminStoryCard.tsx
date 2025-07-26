@@ -91,7 +91,7 @@ const AdminStoryCard = ({ story, setStories }: AdminStoryCardProps) => {
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, height: "100%", borderRadius: 5 }}>
+      <Card sx={{ height: "100%", borderRadius: 5 }}>
         <CardMedia
           onClick={handleOpen}
           component="img"

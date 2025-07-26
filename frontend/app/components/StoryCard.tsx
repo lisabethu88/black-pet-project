@@ -15,7 +15,7 @@ interface StoryCardProps {
 
 const StoryCard = ({ story }: StoryCardProps) => {
   return (
-    <Card sx={{ height: "100%", borderRadius: 5 }} elevation={2}>
+    <Card sx={{ height: "100%", borderRadius: 5 }}>
       <CardMedia
         component="img"
         image={story.image_url}

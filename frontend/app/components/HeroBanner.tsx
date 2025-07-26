@@ -36,7 +36,7 @@ const HeroBanner = () => {
         <Container sx={{ position: "relative", zIndex: 2 }}>
           <Typography variant="h2" fontWeight="bold" gutterBottom>
             Black Pets Deserve Love, Too{" "}
-            <FavoriteIcon sx={{ fontSize: "2.5rem" }} />
+            <FavoriteIcon sx={{ fontSize: "2.5rem", color: "red" }} />
           </Typography>
           <Typography variant="h6" mb={4}>
             Discover adoptable black pets waiting for a home!
@@ -44,9 +44,11 @@ const HeroBanner = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               gap: 2,
               alignItems: "center",
+              justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
             <PrimaryButton path="pets" buttonText="View Pets" />

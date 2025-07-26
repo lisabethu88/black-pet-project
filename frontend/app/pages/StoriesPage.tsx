@@ -35,7 +35,7 @@ const StoriesPage = () => {
   return (
     <Box
       sx={{
-        padding: 5,
+        padding: 2,
         flexGrow: 1,
         width: "100%",
       }}
@@ -50,11 +50,13 @@ const StoriesPage = () => {
             )
         )}
       </Grid>
-      <PaginationButtons
-        page={page}
-        totalPages={totalPages}
-        setPage={setPage}
-      />
+      {totalPages > 1 && (
+        <PaginationButtons
+          page={page}
+          totalPages={totalPages}
+          setPage={setPage}
+        />
+      )}
     </Box>
   );
 };

@@ -18,7 +18,6 @@ const RecentPetsSwiper = () => {
       });
   }, []);
 
-  console.log(pets);
   return (
     <Box
       sx={{

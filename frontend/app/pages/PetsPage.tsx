@@ -1,4 +1,4 @@
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect, useState, type SetStateAction } from "react";
 import LoadingCircle from "~/components/LoadingCircle";
@@ -37,7 +37,7 @@ const PetsPage = () => {
   return (
     <Box
       sx={{
-        padding: 5,
+        padding: 2,
         flexGrow: 1,
       }}
     >
@@ -48,11 +48,13 @@ const PetsPage = () => {
           </Grid>
         ))}
       </Grid>
-      <PaginationButtons
-        page={page}
-        totalPages={totalPages}
-        setPage={setPage}
-      />
+      {totalPages > 1 && (
+        <PaginationButtons
+          page={page}
+          totalPages={totalPages}
+          setPage={setPage}
+        />
+      )}
     </Box>
   );
 };

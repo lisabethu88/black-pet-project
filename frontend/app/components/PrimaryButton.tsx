@@ -4,8 +4,9 @@ import { Link } from "react-router";
 interface PrimaryButtonProps {
   path: string;
   buttonText: string;
+  bgColor?: string;
 }
-const PrimaryButton = ({ path, buttonText }: PrimaryButtonProps) => {
+const PrimaryButton = ({ path, buttonText, bgColor }: PrimaryButtonProps) => {
   return (
     <Button
       variant="contained"
@@ -15,7 +16,7 @@ const PrimaryButton = ({ path, buttonText }: PrimaryButtonProps) => {
       sx={{
         width: "fit-content",
         mr: 2,
-        backgroundColor: "#5b7553",
+        backgroundColor: bgColor ? bgColor : "#5b7553",
         fontFamily: "'Montserrat', sans-serif",
         letterSpacing: "0.05rem",
         fontWeight: 300,

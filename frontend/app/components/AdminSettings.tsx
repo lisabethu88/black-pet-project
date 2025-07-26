@@ -48,7 +48,16 @@ const AdminSettings = ({
   return (
     <>
       <FormControl component="fieldset">
-        <FormLabel component="legend" sx={{ fontFamily: "Radley" }}>
+        <FormLabel
+          component="legend"
+          sx={{
+            fontFamily: "Radley",
+            fontSize: "1.5rem",
+            "&.Mui-focused": {
+              color: "rgba(0, 0, 0, 0.6)", // Prevent color change on focus
+            },
+          }}
+        >
           Admin Settings
         </FormLabel>
         <FormGroup aria-label="position" row>
@@ -56,27 +65,23 @@ const AdminSettings = ({
             value="end"
             control={
               <Switch
-                color="primary"
-                defaultChecked={initialStatus == "approved"}
                 checked={status == "approved"}
                 onChange={handleStatusToggle}
               />
             }
-            label="Approved?"
+            label="Approved"
             labelPlacement="end"
           />
           <FormControlLabel
             value="end"
             control={
               <Switch
-                color="primary"
-                defaultChecked={initialFeatured}
-                disabled={status === "pending"}
                 checked={featured && status === "approved"}
                 onChange={handleFeaturedToggle}
+                disabled={status !== "approved"}
               />
             }
-            label="Featured?"
+            label="Featured"
             labelPlacement="end"
           />
         </FormGroup>

@@ -36,68 +36,61 @@ const FeaturedStories = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        justifySelf: "center",
+        paddingY: 5,
+        paddingX: 1,
+        alignItems: "center",
+        width: "100%",
+        maxWidth: 500,
+        margin: "0 auto",
       }}
     >
-      <Box
-        sx={{
-          paddingY: 5,
-          paddingX: 1,
-          alignItems: "center",
-          width: "100%",
-          maxWidth: 500,
-          margin: "0 auto",
+      <Typography variant="h3" textAlign={"center"} marginBottom={2}>
+        Featured Stor{stories.length > 1 ? "ies" : "y"}
+      </Typography>
+      <Swiper
+        pagination={{
+          type: "progressbar",
         }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
       >
-        <Typography variant="h3" textAlign={"center"} marginBottom={2}>
-          Featured Stor{stories.length > 1 ? "ies" : "y"}
-        </Typography>
-        <Swiper
-          pagination={{
-            type: "progressbar",
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {stories.map(
-            (story) =>
-              story.featured && (
-                <SwiperSlide>
-                  <StoryCard story={story} />
-                </SwiperSlide>
-              )
-          )}
-          <SwiperSlide>
-            <Card sx={{ height: 575, borderRadius: 5, margin: "0 auto" }}>
-              <CardContent
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  height: "100%",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 5,
-                }}
+        {stories.map(
+          (story) =>
+            story.featured && (
+              <SwiperSlide>
+                <StoryCard story={story} />
+              </SwiperSlide>
+            )
+        )}
+        <SwiperSlide>
+          <Card sx={{ height: 575, borderRadius: 5, margin: "0 auto" }}>
+            <CardContent
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                height: "100%",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 5,
+              }}
+            >
+              <Typography
+                variant="h4"
+                gutterBottom
+                fontFamily="'Playfair Display', serif"
+                textAlign="center"
+                maxWidth={500}
+                color={"#5b7753"}
               >
-                <Typography
-                  variant="h4"
-                  gutterBottom
-                  fontFamily="'Playfair Display', serif"
-                  textAlign="center"
-                  maxWidth={500}
-                  color={"#5b7753"}
-                >
-                  Have an adoption story to share?
-                </Typography>
-                <PrimaryButton path={"submit"} buttonText={"Submit"} />
-              </CardContent>
-            </Card>
-          </SwiperSlide>
-        </Swiper>
-      </Box>
+                Have an adoption story to share?
+              </Typography>
+              <PrimaryButton path={"submit"} buttonText={"Submit"} />
+            </CardContent>
+          </Card>
+        </SwiperSlide>
+      </Swiper>
     </Box>
   );
 };
