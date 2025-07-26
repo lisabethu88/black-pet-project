@@ -6,11 +6,11 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Dotenv\Dotenv;
+// use Dotenv\Dotenv;
 
-// dont use in production
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+// // dont use in production
+// $dotenv = Dotenv::createImmutable(__DIR__);
+// $dotenv->load();
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
