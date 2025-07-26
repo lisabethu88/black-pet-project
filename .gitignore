@@ -1,7 +1,10 @@
 .DS_Store
-/node_modules/
+node_modules/
+build/
 
 # React Router
-/.react-router/
-/build/
-.env
+/frontend/node_modules/
+/frontend/build/
+/frontend/.react-router/
+*.env
+ToDo.md
