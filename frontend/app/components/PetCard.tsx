@@ -8,7 +8,7 @@ import {
   Chip,
   Link,
 } from "@mui/material";
-import type { PetfinderPet } from "~/types"; // make sure you import the right type
+import type { PetfinderPet } from "~/types"; 
 import LinkButton from "./LinkButton";
 
 interface PetCardProps {

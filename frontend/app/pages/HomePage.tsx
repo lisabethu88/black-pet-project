@@ -1,6 +1,4 @@
-// ├── <CallToActionButtons />
-// ├── <WhyBlackPetsSection />
-// ├── <JoinCommunityCTA />
+
 
 import { Box, Typography } from "@mui/material";
 import BlackDogSyndrome from "~/components/BlackDogSyndrome";

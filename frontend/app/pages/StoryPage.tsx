@@ -27,14 +27,14 @@ const StoryPage = () => {
       })
       .then((data) => {
         if (!data || !data.id || data.status === "pending") {
-          setError(true); // will trigger redirect
+          setError(true);
         } else {
           setStory(data);
         }
       })
       .catch((err) => {
         console.error("Fetch error:", err);
-        setError(true); // will trigger redirect
+        setError(true); 
       })
       .finally(() => {
         setLoading(false);

@@ -78,13 +78,11 @@ const ContactForm = () => {
           label="Name"
           variant="outlined"
           sx={{
-            // Input text font
             "& .MuiInputBase-input": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
               backgroundColor: "white",
             },
-            // Label font
             "& .MuiInputLabel-root": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
@@ -124,13 +122,11 @@ const ContactForm = () => {
           variant="outlined"
           label="Email"
           sx={{
-            // Input text font
             "& .MuiInputBase-input": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
               backgroundColor: "white",
             },
-            // Label font
             "& .MuiInputLabel-root": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
@@ -171,12 +167,10 @@ const ContactForm = () => {
           variant="outlined"
           label="Message"
           sx={{
-            // Input text font
             "& .MuiInputBase-input": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
             },
-            // Label font
             "& .MuiInputLabel-root": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,

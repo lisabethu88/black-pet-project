@@ -18,7 +18,7 @@ const SubmitStoryForm = () => {
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
-    severity: "success", // 'success' | 'error' | 'info' | 'warning'
+    severity: "success", 
   });
 
   const [formData, setFormData] = useState<
