@@ -9,19 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-function loadEnv($path) {
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        if (str_starts_with(trim($line), '#')) continue;
-        list($name, $value) = explode('=', $line, 2);
-        $_ENV[$name] = trim($value);
+if (!getenv('RENDER')) {
+    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+        require __DIR__ . '/vendor/autoload.php';
+        Dotenv\Dotenv::createImmutable(__DIR__)->load();
     }
-}
-
-loadEnv(__DIR__ . '/.env');
+  }
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];

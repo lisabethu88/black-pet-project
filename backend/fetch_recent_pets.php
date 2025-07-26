@@ -4,16 +4,12 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 
-// .env loader
-// function loadEnv($path) {
-//     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-//     foreach ($lines as $line) {
-//         if (str_starts_with(trim($line), '#')) continue;
-//         list($name, $value) = explode('=', $line, 2);
-//         $_ENV[$name] = trim($value);
-//     }
-// }
-// loadEnv(__DIR__ . '/.env');
+if (!getenv('RENDER')) {
+  if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+      require __DIR__ . '/vendor/autoload.php';
+      Dotenv\Dotenv::createImmutable(__DIR__)->load();
+  }
+}
 
 $client_id = $_ENV['PETFINDER_API_KEY'];
 $client_secret = $_ENV['PETFINDER_API_SECRET'];
