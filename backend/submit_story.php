@@ -12,11 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Dotenv\Dotenv;
+function loadEnv($path) {
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (str_starts_with(trim($line), '#')) continue;
+        list($name, $value) = explode('=', $line, 2);
+        $_ENV[$name] = trim($value);
+    }
+}
 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
+loadEnv(__DIR__ . '/.env');
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
 $dbname = $_ENV['DB_NAME'];
