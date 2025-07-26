@@ -1,12 +1,22 @@
-# Use the official PHP image with built-in web server
-FROM php:8.2-cli
 
-# Copy backend files into container
-WORKDIR /app
-COPY . /app
+FROM php:8.2-apache
 
-# Expose port 10000 (you can change if you want)
-EXPOSE 10000
+# Install required PHP extensions and system packages
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    zip \
+    && docker-php-ext-install pdo pdo_pgsql
 
-# Start PHP built-in server on container start
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "."]
+# Enable Apache mod_rewrite if needed
+RUN a2enmod rewrite
+
+# Copy project files
+COPY . /var/www/html/
+
+# Set working directory
+WORKDIR /var/www/html/
+
+# If you need Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
