@@ -6,18 +6,18 @@ header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 
 
-require_once __DIR__ . '/vendor/autoload.php';
+// require_once __DIR__ . '/vendor/autoload.php';
 
-function loadEnv($path) {
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        if (str_starts_with(trim($line), '#')) continue;
-        list($name, $value) = explode('=', $line, 2);
-        $_ENV[$name] = trim($value);
-    }
-}
+// function loadEnv($path) {
+//     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+//     foreach ($lines as $line) {
+//         if (str_starts_with(trim($line), '#')) continue;
+//         list($name, $value) = explode('=', $line, 2);
+//         $_ENV[$name] = trim($value);
+//     }
+// }
 
-loadEnv(__DIR__ . '/.env');
+// loadEnv(__DIR__ . '/.env');
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
