@@ -12,7 +12,7 @@ use Dotenv\Dotenv;
 
 // dont use in production
 // $dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+// $dotenv->load();
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
