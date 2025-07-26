@@ -15,7 +15,7 @@ try {
     $pdo = new PDO($dsn, $user, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
-    // Simple test query
+    
     $stmt = $pdo->query("SELECT 1");
     $result = $stmt->fetchColumn();
 

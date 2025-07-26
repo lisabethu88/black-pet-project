@@ -41,7 +41,6 @@ try {
     $id = $input['id'];
     $featured = filter_var($input['featured'], FILTER_VALIDATE_BOOLEAN);
 
-    // Prepare & execute update
     $stmt = $pdo->prepare("UPDATE stories SET featured = :featured WHERE id = :id");
     $stmt->bindParam(':featured', $featured, PDO::PARAM_BOOL);
     $stmt->bindParam(':id', $id);
