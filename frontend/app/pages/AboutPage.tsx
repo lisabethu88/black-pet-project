@@ -59,15 +59,16 @@ const AboutPage = () => {
               },
             }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            My family and I are proud adopters of two wonderful black dogs,
+            Kevin and Chloe. Through our journey with them, we discovered
+            something called Black Dog Syndrome, a heartbreaking phenomenon
+            where black dogs are often overlooked in shelters simply because of
+            their color. This awareness inspired us to take action. We created
+            this space to shine a light on the unique beauty and lovable nature
+            of black dogs, and to help raise awareness so more of these amazing
+            pets can find their forever homes. Our mission is to celebrate
+            Kevin, Chloe, and all black dogs out there who deserve love,
+            attention, and a second chance.
           </Typography>
         </motion.div>
       </Box>
