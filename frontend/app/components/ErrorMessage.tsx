@@ -31,7 +31,7 @@ const ErrorMessage = ({ errMessage }: ErrorMessageProps) => {
         component="img"
         src="/guinea-pig.png"
       />
-      <PrimaryButton path={"/"} buttonText={"Return Home"}></PrimaryButton>
+      <PrimaryButton path={""} buttonText={"Return Home"}></PrimaryButton>
     </Box>
   );
 };

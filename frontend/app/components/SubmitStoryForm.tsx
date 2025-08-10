@@ -3,6 +3,9 @@ import {
   Divider,
   FormControl,
   FormHelperText,
+  FormLabel,
+  InputLabel,
+  TextareaAutosize,
   TextField,
   Typography,
 } from "@mui/material";
@@ -192,15 +195,15 @@ const SubmitStoryForm = () => {
 
       <FormControl fullWidth error={!!errors.body}>
         <TextField
+          id="body-input"
           name="body"
-          label="Your Story"
           value={formData.body || ""}
           onChange={handleChange}
-          multiline
-          rows={6}
-          variant="outlined"
+          aria-describedby="body-helper-text"
+          aria-multiline
+          label="Your Story"
         />
-        <FormHelperText>
+        <FormHelperText id="body-helper-text">
           {errors.body || "Tell us how your black pet changed your life!"}
         </FormHelperText>
       </FormControl>

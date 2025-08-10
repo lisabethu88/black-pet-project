@@ -30,6 +30,7 @@ const PetfinderButton = ({ to }: PetfinderButtonProps) => {
       View on{"  "}
       <Box
         component="img"
+        alt="petfinder"
         src="/pf-logo.png"
         sx={{ width: 75, marginLeft: 0.75 }}
       />

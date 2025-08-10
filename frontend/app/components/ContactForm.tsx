@@ -3,6 +3,7 @@ import {
   Divider,
   FormControl,
   FormHelperText,
+  InputLabel,
   TextField,
   Typography,
 } from "@mui/material";
@@ -188,30 +189,17 @@ const ContactForm = () => {
 
       {/* Message */}
       <FormControl error={!!errors.message}>
+        {/* <InputLabel htmlFor="message-input">Message</InputLabel> */}
         <TextField
           id="message-input"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          multiline
-          rows={4}
           aria-describedby="message-helper"
           variant="outlined"
+          aria-label="Message"
+          aria-multiline
           label="Message"
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-              backgroundColor: "white",
-            },
-            "& .MuiInputLabel-root": { fontFamily: "'Montserrat', sans-serif" },
-            "& label.Mui-focused": { color: "#5b7553" },
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": { borderColor: "#5b7553a" },
-              "&:hover fieldset": { borderColor: "#5b7553" },
-              "&.Mui-focused fieldset": { borderColor: "#5b7553" },
-            },
-          }}
         />
         <FormHelperText id="message-helper">
           {errors.message || "What would you like to tell us?"}

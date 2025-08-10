@@ -138,7 +138,7 @@ const AdminStoryCard = ({ story, setStories }: AdminStoryCardProps) => {
               flexDirection: "column",
               alignItems: "baseline",
               padding: 1,
-              backgroundColor: "whitesmoke",
+              backgroundColor: "#f5f5f57d",
               borderRadius: 3,
             }}
           >

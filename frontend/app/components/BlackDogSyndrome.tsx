@@ -18,10 +18,10 @@ const FeatureItem = ({
   <Stack direction="row" spacing={2} alignItems="flex-start" mb={3}>
     <Icon sx={{ color: "white", fontSize: 28, mt: 0.5 }} />
     <Box>
-      <Typography variant="subtitle1" fontWeight="bold" color="white">
+      <Typography variant="h3" fontWeight="bold" color="white">
         {title}
       </Typography>
-      <Typography variant="body2" color="grey.300">
+      <Typography variant="body1" color="grey.300">
         {subtitle}
       </Typography>
     </Box>
@@ -48,12 +48,12 @@ const BlackDogSyndrome = () => {
           flexWrap: { xs: "wrap", md: "nowrap" },
           justifyContent: "center",
           alignItems: "center",
-          gap: 2,
+          gap: 10,
         }}
       >
         <Box>
           <Typography
-            variant="h3"
+            variant="h2"
             gutterBottom
             fontFamily="'Radley', serif"
             textAlign={{ xs: "center", md: "left" }}
@@ -148,14 +148,13 @@ const BlackDogSyndrome = () => {
             <Box
               component="img"
               src="/bd-art-1.png"
-              alt="Black dog behind cage"
+              alt="Silhouette of a dog with a green abstract background."
               sx={{
                 width: "100%",
                 objectFit: "cover",
                 borderRadius: 0,
                 zIndex: 0,
                 maxWidth: 300,
-                marginTop: 5,
               }}
             />
           </motion.div>
@@ -168,7 +167,7 @@ const BlackDogSyndrome = () => {
           flexWrap: { xs: "wrap-reverse", md: "nowrap" },
           justifyContent: "center",
           alignItems: "center",
-          gap: 2,
+          gap: 10,
         }}
       >
         {" "}
@@ -196,21 +195,20 @@ const BlackDogSyndrome = () => {
             <Box
               component="img"
               src="/bd-art-2.png"
-              alt="Black dog behind cage"
+              alt="Silhouette of man walking dog with a green abstract background."
               sx={{
                 width: "100%",
                 objectFit: "cover",
                 borderRadius: 0,
                 zIndex: 2,
                 maxWidth: 300,
-                marginTop: 5,
               }}
             />
           </motion.div>
         </motion.div>
         <Box>
           <Typography
-            variant="h3"
+            variant="h2"
             gutterBottom
             fontFamily="'Radley', serif"
             color="white"
@@ -218,7 +216,12 @@ const BlackDogSyndrome = () => {
           >
             Why{" "}
             <span className="circled-text">
-              You <img id="circle-img" src="/circle.png"></img>
+              You{" "}
+              <img
+                alt="Handrawn green circle"
+                id="circle-img"
+                src="/circle.png"
+              ></img>
             </span>{" "}
             Should Adopt a Black Pet{" "}
           </Typography>

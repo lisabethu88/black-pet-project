@@ -58,21 +58,31 @@ const PetsPage = () => {
   if (error) return <ErrorMessage errMessage={error} />;
   return (
     <Box
+      id="pets-page"
       sx={{
         padding: 2,
       }}
     >
-      <Typography
-        variant="body2"
-        color="black"
-        sx={{ mb: 2, fontStyle: "italic" }}
-      >
-        <b>
-          <b>Note:</b>
-        </b>{" "}
-        Not all pets shown are fully black. Petfinder includes animals with any
-        black in their fur when filtering by color.
-      </Typography>
+      <Box sx={{ maxWidth: 700 }}>
+        <Typography variant="h2" color="#5a7552">
+          Adopt a Pet Today
+        </Typography>
+
+        <br />
+
+        <Typography
+          variant="h3"
+          color="black"
+          fontWeight={300}
+          sx={{ mb: 2, fontStyle: "italic" }}
+        >
+          <b>
+            <b>Note:</b>
+          </b>{" "}
+          Not all pets shown are fully black. Petfinder includes animals with
+          any black in their fur when filtering by color.
+        </Typography>
+      </Box>
       <PetsFilter setFilters={setFilters} filters={filters} setPage={setPage} />
       <Grid container spacing={2}>
         {pets.map((pet) => (

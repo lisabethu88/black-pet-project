@@ -41,14 +41,15 @@ const NavBar = () => {
                 <Avatar
                   sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}
                   src="/bpp-logo.png"
+                  alt="Handrawn black pawprint logo"
                 ></Avatar>
               </NavLink>
               <Typography
-                variant="h6"
+                variant="h1"
                 noWrap
                 component="a"
                 href="/"
-                id="nav-h6"
+                id="nav-h1"
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
@@ -57,6 +58,7 @@ const NavBar = () => {
                   color: "black",
                   textDecoration: "none",
                   textTransform: "uppercase",
+                  fontSize: "1.2rem",
                 }}
               >
                 Black Pet Project
@@ -120,14 +122,15 @@ const NavBar = () => {
                 <Avatar
                   sx={{ display: { xs: "flex", md: "none" }, mr: 2 }}
                   src="/bpp-logo.png"
+                  alt="Handrawn black pawprint logo"
                 ></Avatar>
               </NavLink>
               <Typography
-                variant="h5"
+                variant="h1"
                 noWrap
                 sx={{
                   flexGrow: 1,
-                  fontSize: 15,
+                  fontSize: "1.2rem",
                   mr: 2,
                   display: { xs: "flex", md: "none" },
                   fontFamily: "'Radley', serif",

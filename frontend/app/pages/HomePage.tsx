@@ -62,15 +62,7 @@ const HomePage = () => {
           ></Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 2,
-        }}
-      >
+      <Box>
         <FeaturedStories />
 
         <RecentPetsSwiper />

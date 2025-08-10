@@ -85,6 +85,7 @@ const AboutPage = () => {
           }}
           component="img"
           src="/kevin-chloe.png"
+          alt="Two black dogs laying together in a bed"
         />
       </motion.div>
     </Box>

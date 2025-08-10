@@ -26,6 +26,7 @@ const ContactPage = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Box
+          alt={"black cat"}
           component="img"
           src={isXs ? "/big-cat.png" : "/kitten.png"}
           sx={{

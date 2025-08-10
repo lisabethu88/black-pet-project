@@ -13,6 +13,7 @@ const HeroBanner = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Box
+        id="hero-banner"
         sx={{
           backgroundImage: `url('/bpp-hero-color.png')`,
           backgroundSize: "cover",
@@ -24,6 +25,7 @@ const HeroBanner = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "black",
         }}
       >
         <Box
@@ -40,7 +42,7 @@ const HeroBanner = () => {
             Black Pets Deserve Love, Too{" "}
             <FavoriteIcon sx={{ fontSize: "2.5rem", color: "red" }} />
           </Typography>
-          <Typography variant="h5" mb={4}>
+          <Typography variant="h3" mb={4} fontSize={"1.5rem"}>
             Discover adoptable black pets waiting for a home!
           </Typography>
           <Box

@@ -30,13 +30,13 @@ const StoryCard = ({ story }: StoryCardProps) => {
           alignItems="center"
           mb={1}
         >
-          <Typography variant="h5" sx={{ color: "#5b7553", fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "#5b7553", fontWeight: 700 }}>
             {story.title}
           </Typography>
         </Stack>
 
         <Typography
-          variant="subtitle2"
+          variant="h5"
           color="text.secondary"
           sx={{ fontFamily: "Montserrat" }}
           gutterBottom

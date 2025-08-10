@@ -64,6 +64,7 @@ const RecentPetsSwiper = () => {
             <Avatar
               sx={{ width: { xs: 25, sm: 40 }, height: { xs: 25, sm: 40 } }}
               src="/bpp-logo.png"
+              alt="Handrawn black pawprint logo"
             />
           </Box>
 

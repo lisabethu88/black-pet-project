@@ -17,22 +17,16 @@ interface PetsFilterProps {
 }
 
 const PetsFilter = ({ setPage, filters, setFilters }: PetsFilterProps) => {
-  const handleChange =
-    (field: keyof PetFilters) => (e: React.ChangeEvent<{ value: unknown }>) => {
-      setFilters((prev) => ({
-        ...prev,
-        [field]: e.target.value as string,
-      }));
-      setPage(1);
-    };
-
   const [zipInput, setZipInput] = useState("");
 
   return (
     <Box display="flex" gap={2} mb={2} flexWrap="wrap">
       <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel>Type</InputLabel>
+        <InputLabel id="type-label" htmlFor={"type-label"}>
+          Type
+        </InputLabel>
         <Select
+          inputProps={{ id: "type-label" }}
           value={filters.type}
           label="Type"
           onChange={(e) => setFilters({ ...filters, type: e.target.value })}
@@ -44,8 +38,11 @@ const PetsFilter = ({ setPage, filters, setFilters }: PetsFilterProps) => {
       </FormControl>
 
       <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel>Gender</InputLabel>
+        <InputLabel id="gender-label" htmlFor={"gender-label"}>
+          Gender
+        </InputLabel>
         <Select
+          inputProps={{ id: "gender-label" }}
           value={filters.gender}
           label="Gender"
           onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
@@ -57,8 +54,11 @@ const PetsFilter = ({ setPage, filters, setFilters }: PetsFilterProps) => {
       </FormControl>
 
       <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel>Age</InputLabel>
+        <InputLabel id="age-label" htmlFor={"age-label"}>
+          Age
+        </InputLabel>
         <Select
+          inputProps={{ id: "age-label" }}
           value={filters.age}
           label="Age"
           onChange={(e) => setFilters({ ...filters, age: e.target.value })}
@@ -72,8 +72,11 @@ const PetsFilter = ({ setPage, filters, setFilters }: PetsFilterProps) => {
       </FormControl>
 
       <FormControl sx={{ minWidth: 140 }}>
-        <InputLabel>Sort</InputLabel>
+        <InputLabel id="sort-label" htmlFor={"sort-label"}>
+          Sort
+        </InputLabel>
         <Select
+          inputProps={{ id: "sort-label" }}
           value={filters.sort}
           label="Sort"
           onChange={(e) => setFilters({ ...filters, sort: e.target.value })}

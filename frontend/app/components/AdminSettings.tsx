@@ -51,11 +51,12 @@ const AdminSettings = ({
         <FormLabel
           component="legend"
           sx={{
-            fontFamily: "Radley",
+            fontFamily: "Montserrat",
             fontSize: "1.5rem",
-            "&.Mui-focused": {
-              color: "rgba(0, 0, 0, 0.6)", // Prevent color change on focus
-            },
+            color: "black",
+            // "&.Mui-focused": {
+            //   color: "rgba(0, 0, 0, 0.6)", // Prevent color change on focus
+            // },
           }}
         >
           Admin Settings

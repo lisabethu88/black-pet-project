@@ -28,7 +28,7 @@ const PetCard = ({ pet }: PetCardProps) => {
       <CardMedia
         component="img"
         image={mainPhoto}
-        alt={pet.name}
+        alt={`${pet.species} named ${pet.name}`}
         sx={{ objectFit: "cover", height: 350 }}
       />
 
@@ -40,7 +40,7 @@ const PetCard = ({ pet }: PetCardProps) => {
           mb={1}
         >
           <Typography
-            variant="h5"
+            variant="h4"
             sx={{ color: "#5b7553", fontWeight: 700 }}
             noWrap
           >
@@ -61,7 +61,7 @@ const PetCard = ({ pet }: PetCardProps) => {
         </Stack>
 
         <Typography
-          variant="subtitle2"
+          variant="h5"
           color="text.secondary"
           sx={{ fontFamily: "Montserrat" }}
           gutterBottom

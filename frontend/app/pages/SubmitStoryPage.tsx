@@ -35,6 +35,7 @@ const SubmitStoryPage = () => {
             sx={{ maxWidth: 500, width: "100%", borderRadius: 5 }}
             component="img"
             src="/hugging-dog.png"
+            alt="Woman hugging a black dog"
           />
         </motion.div>
         <Typography

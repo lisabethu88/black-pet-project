@@ -26,11 +26,28 @@ h2,
 h3,
 h4,
 h5,
-#nav-h6 {
+#nav-h1:not(#hero-banner h3) {
   font-family: "Radley", serif !important;
 }
 
-.navbar a:not(#nav-h6),
+h2:not(#hero-banner h2) {
+  font-size: 3rem !important;
+}
+
+#pets-page h3 {
+  font-size: 1rem !important;
+  font-family: "Montserrat", serif !important;
+}
+h3:not(#hero-banner h3):not(#pets-page h3) {
+  font-size: 2rem !important;
+}
+h4 {
+  font-size: 1.5rem !important;
+}
+h5 {
+  font-size: 1rem !important;
+}
+.navbar a:not(#nav-h1),
 p {
   font-family: "Montserrat", sans-serif !important;
   font-weight: 300 !important;
@@ -102,7 +119,7 @@ li {
 }
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: #5b7553 !important;
+  border-color: #5b755353 !important;
 }
 
 .MuiInputBase-input {

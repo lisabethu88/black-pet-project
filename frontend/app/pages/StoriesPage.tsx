@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import StoryCard from "~/components/StoryCard";
 import { useState, useEffect } from "react";
 import type { StoryType } from "~/types";
@@ -40,6 +40,15 @@ const StoriesPage = () => {
         padding: 2,
       }}
     >
+      <Typography variant="h2" color="#5a7552">
+        Stories of Black Pets and Their Families
+      </Typography>
+      <Typography variant="h3">
+        Discover heartfelt stories about black pets who found loving homes and
+        the special bond they share with their adopters.
+      </Typography>
+      <br />
+
       <Grid container spacing={2}>
         {stories.map(
           (story) =>
