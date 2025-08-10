@@ -54,7 +54,7 @@ const PetsPage = () => {
       });
   }, [page, filters]);
 
-  if (loading) return <LoadingCircle />;
+  if (loading) return <LoadingCircle loadingText="Loading pets..." />;
   if (error) return <ErrorMessage errMessage={error} />;
   return (
     <Box

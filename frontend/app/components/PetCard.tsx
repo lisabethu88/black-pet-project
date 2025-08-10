@@ -24,7 +24,7 @@ const PetCard = ({ pet }: PetCardProps) => {
       : "/paw.png");
 
   return (
-    <Card sx={{ height: "100%", borderRadius: 5 }}>
+    <Card sx={{ height: 575, borderRadius: 5 }}>
       <CardMedia
         component="img"
         image={mainPhoto}

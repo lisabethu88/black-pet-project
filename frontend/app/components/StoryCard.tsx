@@ -15,7 +15,7 @@ interface StoryCardProps {
 
 const StoryCard = ({ story }: StoryCardProps) => {
   return (
-    <Card sx={{ height: "100%", borderRadius: 5 }}>
+    <Card sx={{ height: 575, borderRadius: 5, overflow: "scroll" }}>
       <CardMedia
         component="img"
         image={story.image_url}

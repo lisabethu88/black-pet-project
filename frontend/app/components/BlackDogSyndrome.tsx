@@ -147,7 +147,7 @@ const BlackDogSyndrome = () => {
           >
             <Box
               component="img"
-              src="/public/bd-art-1.png"
+              src="/bd-art-1.png"
               alt="Black dog behind cage"
               sx={{
                 width: "100%",
@@ -251,7 +251,6 @@ const BlackDogSyndrome = () => {
             path={"/pets"}
             buttonText={"Find a pet"}
           ></PrimaryButton>
-          
         </Box>{" "}
       </Box>
     </Box>

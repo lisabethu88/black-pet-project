@@ -38,11 +38,9 @@ const StoriesPage = () => {
     <Box
       sx={{
         padding: 2,
-        flexGrow: 1,
-        width: "100%",
       }}
     >
-      <Grid container spacing={2} justifyContent={"center"}>
+      <Grid container spacing={2}>
         {stories.map(
           (story) =>
             story.status == "approved" && (

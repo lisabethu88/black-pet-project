@@ -13,6 +13,7 @@ const LoadingCircle = ({ loadingText }: LoadingCircleProps) => {
         height: "100%",
         maxWidth: 1000,
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
       }}

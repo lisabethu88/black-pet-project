@@ -64,14 +64,11 @@ const HomePage = () => {
       </Box>
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" },
-
-          // flexDirection: "row",
-          // justifyContent: "center",
-          // alignItems: "center",
-          // flexWrap: "wrap",
-          // gap: 2,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 2,
         }}
       >
         <FeaturedStories />

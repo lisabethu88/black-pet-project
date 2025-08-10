@@ -49,6 +49,7 @@ const FeaturedStories = () => {
             paddingX: 1,
             alignItems: "center",
             maxWidth: 500,
+            width: "100%",
             margin: "0 auto",
           }}
         >
@@ -90,7 +91,7 @@ const FeaturedStories = () => {
                 )
             )}
             <SwiperSlide>
-              <Card sx={{ height: 570 }} elevation={0}>
+              <Card sx={{ height: 575 }} elevation={0}>
                 <CardContent
                   sx={{
                     flexGrow: 1,

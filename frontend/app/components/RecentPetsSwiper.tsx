@@ -45,8 +45,9 @@ const RecentPetsSwiper = () => {
             paddingY: 5,
             paddingX: 1,
             alignItems: "center",
-            width: "100%",
             maxWidth: 500,
+            width: "100%",
+
             margin: "0 auto",
           }}
         >
@@ -78,12 +79,12 @@ const RecentPetsSwiper = () => {
               </SwiperSlide>
             ))}
             <SwiperSlide>
-              <Card sx={{ height: 570 }} elevation={0}>
+              <Card sx={{ height: 575, overflow: "scroll" }} elevation={0}>
                 <CardContent
                   sx={{
                     flexGrow: 1,
                     display: "flex",
-                    height: "100%",
+                    height: 500,
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
