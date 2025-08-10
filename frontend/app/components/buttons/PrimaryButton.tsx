@@ -14,18 +14,19 @@ const PrimaryButton = ({ path, buttonText, bgColor }: PrimaryButtonProps) => {
       component={Link}
       to={`/${path}`}
       sx={{
+        borderRadius: 2,
         width: "fit-content",
         mr: 2,
         backgroundColor: bgColor ? bgColor : "#5b7553",
         fontFamily: "'Montserrat', sans-serif",
         letterSpacing: "0.05rem",
-        fontWeight: 300,
+        fontWeight: 600,
         transition: "all 0.3s ease-out",
         position: "relative",
         top: 0,
         ":hover": {
           backgroundColor: "#44573e",
-          top: "-6px",
+          transform: "scale(1.05)",
         },
       }}
     >

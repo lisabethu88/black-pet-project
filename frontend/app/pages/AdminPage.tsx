@@ -100,8 +100,8 @@ export default function AdminPage() {
     );
   }
 
-  if (loading) return <LoadingCircle />;
-  if (error) return null;
+  if (loading) return <LoadingCircle loadingText="Loading..." />;
+  if (error) return <p>Error: {error}</p>;
   return (
     <Box sx={{ padding: 2 }}>
       <h1>Welcome, Admin!</h1>

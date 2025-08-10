@@ -3,8 +3,12 @@ import HomePage from "~/pages/HomePage";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Black Pet Project | Adopt. Share. Inspire." },
+    {
+      name: "description",
+      content:
+        "Discover adoptable black pets, share your adoption stories, and help raise awareness to end stigma and increase adoptions.",
+    },
   ];
 }
 

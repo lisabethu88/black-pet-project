@@ -6,10 +6,9 @@ import {
   Stack,
   Typography,
   Chip,
-  Link,
 } from "@mui/material";
-import type { PetfinderPet } from "~/types"; 
-import LinkButton from "./LinkButton";
+import type { PetfinderPet } from "~/types";
+import PetfinderButton from "./buttons/PetfinderButton";
 
 interface PetCardProps {
   pet: PetfinderPet;
@@ -40,7 +39,11 @@ const PetCard = ({ pet }: PetCardProps) => {
           alignItems="center"
           mb={1}
         >
-          <Typography variant="h5" sx={{ color: "#5b7553", fontWeight: 700 }}>
+          <Typography
+            variant="h5"
+            sx={{ color: "#5b7553", fontWeight: 700 }}
+            noWrap
+          >
             {pet.name}
           </Typography>
 
@@ -57,18 +60,22 @@ const PetCard = ({ pet }: PetCardProps) => {
           </Stack>
         </Stack>
 
-        <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        <Typography
+          variant="subtitle2"
+          color="text.secondary"
+          sx={{ fontFamily: "Montserrat" }}
+          gutterBottom
+        >
           {pet.breeds.primary} • {pet.gender} • {pet.size}
         </Typography>
 
         <Typography variant="body2" sx={{ mb: 2 }} noWrap>
           {pet.description || "No description available."}
         </Typography>
-
-        <LinkButton to={pet.url} buttonText={"View on Petfinder"} />
+        <PetfinderButton to={pet.url} />
         <Box mt={2}>
           <Typography variant="caption" color="text.secondary">
-            Located in {pet.contact.address.state}
+            Located in {pet.contact.address.city}, {pet.contact.address.state}
           </Typography>
         </Box>
       </CardContent>

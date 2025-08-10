@@ -7,19 +7,26 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "./buttons/SubmitButton";
+
+type ErrorType = {
+  name: string;
+  email: string;
+  message: string;
+};
+const API_URL = import.meta.env.VITE_RENDER_URL;
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ErrorType>({
     name: "",
     email: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    message: false,
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (
@@ -27,35 +34,86 @@ const ContactForm = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: false }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const validateForm = () => {
+    const newErrors = {} as ErrorType;
 
-    const newErrors = {
-      name: formData.name.trim() === "",
-      email: !/^\S+@\S+\.\S+$/.test(formData.email),
-      message: formData.message.trim() === "",
-    };
+    if (!formData.name.trim()) {
+      newErrors.name = "• Name is required.";
+    } else if (!/^[A-Za-z ,.'-]+$/.test(formData.name.trim())) {
+      newErrors.name = "• Please enter a valid name.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "• Email is required.";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
+      newErrors.email = "• Please enter a valid email address.";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "• Message is required.";
+    } else if (formData.message.trim().length < 5) {
+      newErrors.message = "• Message is too short.";
+    }
 
     setErrors(newErrors);
-
-    if (Object.values(newErrors).some(Boolean)) return;
-
-    console.log("Form submitted:", formData);
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" });
+    return Object.keys(newErrors).length === 0;
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Run frontend validation first
+    if (!validateForm()) return;
+
+    try {
+      const response = await fetch(`${API_URL}/contact-form-validation.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        // Backend returned validation errors
+        const backendErrors = {} as ErrorType;
+
+        result.errors.forEach((err: string) => {
+          if (err.toLowerCase().includes("name")) backendErrors.name = err;
+          if (err.toLowerCase().includes("email")) backendErrors.email = err;
+          if (err.toLowerCase().includes("message"))
+            backendErrors.message = err;
+        });
+
+        setErrors(backendErrors);
+        return;
+      }
+
+      alert(result.message || "Message sent!");
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <Box
+      component="form"
+      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        maxWidth: 500,
+        maxWidth: 600,
+        padding: 1,
       }}
     >
+      {/* Heading */}
       <Typography
         color="#5b7553"
         variant="h1"
@@ -68,6 +126,18 @@ const ContactForm = () => {
       </Typography>
       <Divider sx={{ maxWidth: 300 }} />
       <br />
+
+      {/* Description text */}
+      <Typography
+        variant="body1"
+        sx={{ fontFamily: "'Montserrat', sans-serif", mb: 2 }}
+      >
+        Have a question, feedback, or need help? Fill out the form below and
+        we’ll get back to you as soon as possible. Your information will only be
+        used to respond to your inquiry.
+      </Typography>
+
+      {/* Name */}
       <FormControl error={!!errors.name}>
         <TextField
           id="name-input"
@@ -77,39 +147,13 @@ const ContactForm = () => {
           aria-describedby="name-helper"
           label="Name"
           variant="outlined"
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-              backgroundColor: "white",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
-            "& label.Mui-focused": {
-              color: "#5b7553",
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#5b7553a",
-              },
-              "&:hover fieldset": {
-                borderColor: "#5b7553",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#5b7553",
-              },
-            },
-          }}
         />
         <FormHelperText id="name-helper">
           {errors.name || "Please enter your full name."}
         </FormHelperText>
       </FormControl>
       <br />
+
       {/* Email */}
       <FormControl error={!!errors.email}>
         <TextField
@@ -127,25 +171,12 @@ const ContactForm = () => {
               fontWeight: 100,
               backgroundColor: "white",
             },
-            "& .MuiInputLabel-root": {
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
-            "& label.Mui-focused": {
-              color: "#5b7553",
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
+            "& .MuiInputLabel-root": { fontFamily: "'Montserrat', sans-serif" },
+            "& label.Mui-focused": { color: "#5b7553" },
             "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#5b7553a",
-              },
-              "&:hover fieldset": {
-                borderColor: "#5b7553",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#5b7553",
-              },
+              "& fieldset": { borderColor: "#5b7553a" },
+              "&:hover fieldset": { borderColor: "#5b7553" },
+              "&.Mui-focused fieldset": { borderColor: "#5b7553" },
             },
           }}
         />
@@ -154,6 +185,7 @@ const ContactForm = () => {
         </FormHelperText>
       </FormControl>
       <br />
+
       {/* Message */}
       <FormControl error={!!errors.message}>
         <TextField
@@ -170,31 +202,17 @@ const ContactForm = () => {
             "& .MuiInputBase-input": {
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 100,
+              backgroundColor: "white",
             },
-            "& .MuiInputLabel-root": {
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
-            "& label.Mui-focused": {
-              color: "#5b7553",
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 100,
-            },
+            "& .MuiInputLabel-root": { fontFamily: "'Montserrat', sans-serif" },
+            "& label.Mui-focused": { color: "#5b7553" },
             "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#5b7553a",
-                backgroundColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "#5b7553",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#5b7553",
-              },
+              "& fieldset": { borderColor: "#5b7553a" },
+              "&:hover fieldset": { borderColor: "#5b7553" },
+              "&.Mui-focused fieldset": { borderColor: "#5b7553" },
             },
           }}
         />
-
         <FormHelperText id="message-helper">
           {errors.message || "What would you like to tell us?"}
         </FormHelperText>

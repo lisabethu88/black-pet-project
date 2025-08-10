@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import type { StoryType } from "~/types";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "./buttons/PrimaryButton";
 
 interface StoryCardProps {
   story: StoryType;
@@ -35,7 +35,12 @@ const StoryCard = ({ story }: StoryCardProps) => {
           </Typography>
         </Stack>
 
-        <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        <Typography
+          variant="subtitle2"
+          color="text.secondary"
+          sx={{ fontFamily: "Montserrat" }}
+          gutterBottom
+        >
           {story.pet_name} • {story.species} {story.breed && `- ${story.breed}`}
         </Typography>
 
@@ -47,7 +52,7 @@ const StoryCard = ({ story }: StoryCardProps) => {
           buttonText={`Read ${story.pet_name}'s Story`}
         />
 
-        <Box mt="1rem">
+        <Box mt={2}>
           <Typography variant="caption" color="text.secondary">
             Submitted by {story.author} on{" "}
             {new Date(story.submitted_at).toLocaleDateString()}

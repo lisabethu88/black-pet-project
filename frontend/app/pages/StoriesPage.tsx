@@ -3,12 +3,13 @@ import StoryCard from "~/components/StoryCard";
 import { useState, useEffect } from "react";
 import type { StoryType } from "~/types";
 import LoadingCircle from "~/components/LoadingCircle";
-import PaginationButtons from "~/components/PaginationButtons";
+import PaginationButtons from "~/components/buttons/PaginationButtons";
+import ErrorMessage from "~/components/ErrorMessage";
 
 const StoriesPage = () => {
   const [stories, setStories] = useState<StoryType[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const API_URL = import.meta.env.VITE_RENDER_URL;
@@ -31,7 +32,8 @@ const StoriesPage = () => {
   }, [page]);
 
   if (loading) return <LoadingCircle />;
-  if (error) return <p>Error: {error}</p>;
+
+  if (error) return <ErrorMessage errMessage={error}></ErrorMessage>;
   return (
     <Box
       sx={{

@@ -5,7 +5,7 @@ export function Footer() {
     <Box
       component={"footer"}
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "white",
         paddingTop: 3,
         width: "100%",
         height: 70,
@@ -17,7 +17,7 @@ export function Footer() {
       <Container>
         <Typography
           variant="body2"
-          sx={{ color: "white", textAlign: "center" }}
+          sx={{ color: "black", textAlign: "center" }}
         >
           © {new Date().getFullYear()} Black Pet Project. All rights reserved.
         </Typography>

@@ -10,6 +10,7 @@ const LinkButton = ({ to, buttonText }: LinkButtonProps) => {
       component={Link}
       href={to}
       sx={{
+        borderRadius: 2,
         width: "fit-content",
         mr: 2,
         backgroundColor: "#5b7553",

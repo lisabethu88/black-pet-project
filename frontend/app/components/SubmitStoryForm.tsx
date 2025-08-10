@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "./buttons/SubmitButton";
 import { v4 as uuidv4 } from "uuid";
 import type { StoryType, FormErrors } from "~/types";
 import Snackbar from "@mui/material/Snackbar";
@@ -18,7 +18,7 @@ const SubmitStoryForm = () => {
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
-    severity: "success", 
+    severity: "success",
   });
 
   const [formData, setFormData] = useState<
@@ -117,33 +117,33 @@ const SubmitStoryForm = () => {
       });
   };
 
-  const fieldStyles = {
-    "& .MuiInputBase-input": {
-      fontFamily: "'Montserrat', sans-serif",
-      fontWeight: 100,
-      backgroundColor: "white",
-    },
-    "& .MuiInputLabel-root": {
-      fontFamily: "'Montserrat', sans-serif",
-      fontWeight: 100,
-    },
-    "& label.Mui-focused": {
-      color: "#5b7553",
-      fontFamily: "'Montserrat', sans-serif",
-      fontWeight: 100,
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "#5b7553a",
-      },
-      "&:hover fieldset": {
-        borderColor: "#5b7553",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#5b7553",
-      },
-    },
-  };
+  // const fieldStyles = {
+  //   "& .MuiInputBase-input": {
+  //     fontFamily: "'Montserrat', sans-serif",
+  //     fontWeight: 100,
+  //     backgroundColor: "white",
+  //   },
+  //   "& .MuiInputLabel-root": {
+  //     fontFamily: "'Montserrat', sans-serif",
+  //     fontWeight: 100,
+  //   },
+  //   "& label.Mui-focused": {
+  //     color: "#5b7553",
+  //     fontFamily: "'Montserrat', sans-serif",
+  //     fontWeight: 100,
+  //   },
+  //   "& .MuiOutlinedInput-root": {
+  //     "& fieldset": {
+  //       borderColor: "#5b7553a",
+  //     },
+  //     "&:hover fieldset": {
+  //       borderColor: "#5b7553",
+  //     },
+  //     "&.Mui-focused fieldset": {
+  //       borderColor: "#5b7553",
+  //     },
+  //   },
+  // };
 
   return (
     <Box
@@ -208,7 +208,7 @@ const SubmitStoryForm = () => {
               onChange={handleChange}
               name={field.name}
               variant="outlined"
-              sx={fieldStyles}
+              // sx={fieldStyles}
             />
             <FormHelperText>
               {errors[field.name as keyof typeof errors]
@@ -228,7 +228,7 @@ const SubmitStoryForm = () => {
           multiline
           rows={6}
           variant="outlined"
-          sx={fieldStyles}
+          // sx={fieldStyles}
         />
         <FormHelperText>
           {errors.body || "Tell us how your black pet changed your life!"}

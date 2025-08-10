@@ -1,7 +1,9 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import React from "react";
-
-const LoadingCircle = () => {
+interface LoadingCircleProps {
+  loadingText?: string;
+}
+const LoadingCircle = ({ loadingText }: LoadingCircleProps) => {
   return (
     <Box
       sx={{
@@ -10,12 +12,12 @@ const LoadingCircle = () => {
         width: "100%",
         height: "100%",
         maxWidth: 1000,
-        margin: 5,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
+      <Typography>{loadingText}</Typography>
       <CircularProgress color="success" />
     </Box>
   );

@@ -1,7 +1,9 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "./buttons/PrimaryButton";
 import { motion } from "motion/react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ScrollDownButton from "./buttons/ScrollDownButton";
 
 const HeroBanner = () => {
   return (
@@ -12,7 +14,7 @@ const HeroBanner = () => {
     >
       <Box
         sx={{
-          backgroundImage: `url('/bpp-hero.png')`,
+          backgroundImage: `url('/bpp-hero-color.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -28,7 +30,7 @@ const HeroBanner = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
             zIndex: 1,
           }}
         />
@@ -53,7 +55,7 @@ const HeroBanner = () => {
           >
             <PrimaryButton path="pets" buttonText="View Pets" />
             <PrimaryButton path="submit" buttonText="Share Your Story" />
-          </Box>
+          </Box>{" "}
         </Container>
       </Box>
     </motion.div>

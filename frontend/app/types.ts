@@ -68,3 +68,12 @@ export type FormErrors = Record<
   "pet_name" | "species" | "breed" | "title" | "body" | "image_url" | "author",
   boolean
 >;
+
+export type PetFilters = {
+  type: string; // dog, cat, etc.
+  gender: string; // male, female
+  size: string; // small, medium, large, xlarge
+  age: string; // baby, young, adult, senior
+  sort: string;
+  zip: string;
+};

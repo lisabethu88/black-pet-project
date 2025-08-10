@@ -3,8 +3,12 @@ import AdminPage from "~/pages/AdminPage";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Admin Dashboard | Black Pet Project" },
+    {
+      name: "description",
+      content:
+        "Private admin panel for managing stories on the Black Pet Project platform.",
+    },
   ];
 }
 

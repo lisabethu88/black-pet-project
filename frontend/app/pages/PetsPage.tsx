@@ -1,10 +1,12 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect, useState, type SetStateAction } from "react";
 import LoadingCircle from "~/components/LoadingCircle";
-import PaginationButtons from "~/components/PaginationButtons";
+import PaginationButtons from "~/components/buttons/PaginationButtons";
 import PetCard from "~/components/PetCard";
-import type { PetfinderPet } from "~/types";
+import PetsFilter from "~/components/PetsFilter";
+import type { PetFilters, PetfinderPet } from "~/types";
+import ErrorMessage from "~/components/ErrorMessage";
 
 const PetsPage = () => {
   const [pets, setPets] = useState<PetfinderPet[]>([]);
@@ -12,11 +14,31 @@ const PetsPage = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState<PetFilters>({
+    type: "",
+    gender: "",
+    size: "",
+    age: "",
+    sort: "",
+    zip: "",
+  });
   const API_URL = import.meta.env.VITE_RENDER_URL;
-  console.log(API_URL);
 
   useEffect(() => {
-    fetch(`${API_URL}/fetch_pets.php?page=${page}`)
+    const params = new URLSearchParams({
+      page: String(page),
+      ...(filters.type && { species: filters.type }),
+      ...(filters.gender && { gender: filters.gender }),
+      ...(filters.age && { age: filters.age }),
+      ...(filters.sort && { sort: filters.sort }),
+      ...(filters.sort === "distance" &&
+        filters.zip && { location: filters.zip }),
+    });
+
+    if (filters.sort === "distance" && !filters.zip) {
+      return;
+    }
+    fetch(`${API_URL}/fetch_pets.php?${params.toString()}`)
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -30,17 +52,28 @@ const PetsPage = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, [page]);
+  }, [page, filters]);
 
   if (loading) return <LoadingCircle />;
-  if (error) return null;
+  if (error) return <ErrorMessage errMessage={error} />;
   return (
     <Box
       sx={{
         padding: 2,
-        flexGrow: 1,
       }}
     >
+      <Typography
+        variant="body2"
+        color="black"
+        sx={{ mb: 2, fontStyle: "italic" }}
+      >
+        <b>
+          <b>Note:</b>
+        </b>{" "}
+        Not all pets shown are fully black. Petfinder includes animals with any
+        black in their fur when filtering by color.
+      </Typography>
+      <PetsFilter setFilters={setFilters} filters={filters} setPage={setPage} />
       <Grid container spacing={2}>
         {pets.map((pet) => (
           <Grid key={pet.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>

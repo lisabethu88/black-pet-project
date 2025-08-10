@@ -3,8 +3,12 @@ import ContactPage from "~/pages/ContactPage";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Contact Us | Black Pet Project" },
+    {
+      name: "description",
+      content:
+        "Get in touch with the Black Pet Project team. We're here to answer your questions, hear your stories, and support black pet advocacy.",
+    },
   ];
 }
 

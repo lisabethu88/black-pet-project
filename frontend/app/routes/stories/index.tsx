@@ -3,8 +3,12 @@ import type { Route } from "./+types";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Adoption Stories | Black Pet Project" },
+    {
+      name: "description",
+      content:
+        "Read heartwarming adoption stories from the Black Pet Project community. See how black pets found loving homes and inspired others to adopt.",
+    },
   ];
 }
 

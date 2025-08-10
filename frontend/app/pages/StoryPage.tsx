@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import ImageModal from "~/components/ImageModal";
-import PrimaryButton from "~/components/PrimaryButton";
+import PrimaryButton from "~/components/buttons/PrimaryButton";
 import type { StoryType } from "~/types";
 import { useParams, useNavigate } from "react-router";
 import LoadingCircle from "~/components/LoadingCircle";
@@ -34,7 +34,7 @@ const StoryPage = () => {
       })
       .catch((err) => {
         console.error("Fetch error:", err);
-        setError(true); 
+        setError(true);
       })
       .finally(() => {
         setLoading(false);
@@ -75,7 +75,8 @@ const StoryPage = () => {
             {story?.title}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-            {story?.pet_name} • {story?.species} - {story?.breed}
+            {story?.pet_name} • {story?.species}{" "}
+            {story?.breed && `- ${story?.breed}`}
           </Typography>
           <Box
             component="img"
