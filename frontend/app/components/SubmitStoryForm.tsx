@@ -117,34 +117,6 @@ const SubmitStoryForm = () => {
       });
   };
 
-  // const fieldStyles = {
-  //   "& .MuiInputBase-input": {
-  //     fontFamily: "'Montserrat', sans-serif",
-  //     fontWeight: 100,
-  //     backgroundColor: "white",
-  //   },
-  //   "& .MuiInputLabel-root": {
-  //     fontFamily: "'Montserrat', sans-serif",
-  //     fontWeight: 100,
-  //   },
-  //   "& label.Mui-focused": {
-  //     color: "#5b7553",
-  //     fontFamily: "'Montserrat', sans-serif",
-  //     fontWeight: 100,
-  //   },
-  //   "& .MuiOutlinedInput-root": {
-  //     "& fieldset": {
-  //       borderColor: "#5b7553a",
-  //     },
-  //     "&:hover fieldset": {
-  //       borderColor: "#5b7553",
-  //     },
-  //     "&.Mui-focused fieldset": {
-  //       borderColor: "#5b7553",
-  //     },
-  //   },
-  // };
-
   return (
     <Box
       component="form"
@@ -208,7 +180,6 @@ const SubmitStoryForm = () => {
               onChange={handleChange}
               name={field.name}
               variant="outlined"
-              // sx={fieldStyles}
             />
             <FormHelperText>
               {errors[field.name as keyof typeof errors]
@@ -228,7 +199,6 @@ const SubmitStoryForm = () => {
           multiline
           rows={6}
           variant="outlined"
-          // sx={fieldStyles}
         />
         <FormHelperText>
           {errors.body || "Tell us how your black pet changed your life!"}
