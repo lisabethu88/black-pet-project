@@ -15,9 +15,12 @@ type ErrorType = {
   email: string;
   message: string;
 };
+
 const API_URL = import.meta.env.VITE_RENDER_URL;
 
 const ContactForm = () => {
+  console.log("API_URL:", import.meta.env.VITE_RENDER_URL);
+
   const [formData, setFormData] = useState<ErrorType>({
     name: "",
     email: "",
