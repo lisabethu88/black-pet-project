@@ -30,17 +30,20 @@ h5,
   font-family: "Radley", serif !important;
 }
 
-h2:not(#hero-banner h2) {
+h2:not(#hero-banner h2):not(#pets-page) {
   font-size: 3rem !important;
 }
 
-#pets-page h3 {
+h3:not(#hero-banner h3):not(#stories-page > h3):not(#pets-page h3) {
+  font-size: 2rem !important;
+}
+
+#pets-page h3,
+#stories-page > h3 {
   font-size: 1rem !important;
   font-family: "Montserrat", serif !important;
 }
-h3:not(#hero-banner h3):not(#pets-page h3) {
-  font-size: 2rem !important;
-}
+
 h4 {
   font-size: 1.5rem !important;
 }

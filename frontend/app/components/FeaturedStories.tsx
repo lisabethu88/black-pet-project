@@ -38,6 +38,7 @@ const FeaturedStories = () => {
       sx={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
       {loading ? (

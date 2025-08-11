@@ -34,6 +34,7 @@ const RecentPetsSwiper = () => {
       sx={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
       {" "}

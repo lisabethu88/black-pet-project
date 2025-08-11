@@ -202,6 +202,8 @@ const SubmitStoryForm = () => {
           aria-describedby="body-helper-text"
           aria-multiline
           label="Your Story"
+          multiline
+          minRows={4}
         />
         <FormHelperText id="body-helper-text">
           {errors.body || "Tell us how your black pet changed your life!"}

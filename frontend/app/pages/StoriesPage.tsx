@@ -36,11 +36,12 @@ const StoriesPage = () => {
   if (error) return <ErrorMessage errMessage={error}></ErrorMessage>;
   return (
     <Box
+      id="stories-page"
       sx={{
         padding: 2,
       }}
     >
-      <Typography variant="h2" color="#5a7552">
+      <Typography variant="h2" color="#5a7552" gutterBottom>
         Stories of Black Pets and Their Families
       </Typography>
       <Typography variant="h3">

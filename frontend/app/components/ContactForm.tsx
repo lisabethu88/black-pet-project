@@ -200,6 +200,8 @@ const ContactForm = () => {
           aria-label="Message"
           aria-multiline
           label="Message"
+          multiline
+          minRows={4}
         />
         <FormHelperText id="message-helper">
           {errors.message || "What would you like to tell us?"}
