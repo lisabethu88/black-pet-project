@@ -1,5 +1,5 @@
 import PetsPage from "~/pages/PetsPage";
-import type { Route } from "./+types";
+import type { Route } from "./pets/+types";
 
 export function meta({}: Route.MetaArgs) {
   return [
