@@ -1,18 +1,22 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
+
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
-if (!getenv('RENDER')) {
-    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-        require __DIR__ . '/vendor/autoload.php';
-        Dotenv\Dotenv::createImmutable(__DIR__)->load();
-    }
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
 }
 
+if (!getenv('RENDER') && class_exists('Dotenv\Dotenv')) {
+    Dotenv\Dotenv::createImmutable(__DIR__)->load();
+}
+
+// Now import PHPMailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 $smtp_host = $_ENV['SMTP_HOST'];
 $smtp_username = $_ENV['SMTP_USER'];
 $smtp_password = $_ENV['SMTP_PASS'];
@@ -66,8 +70,8 @@ try {
     $mail->Port       = $smtp_port;
 
     // Recipients
-    $mail->setFrom($data['email'], $data['name']); // From the form sender
-    $mail->addAddress($_ENV['ADMIN_EMAIL'], 'Admin'); // Where you want to receive messages
+    $mail->setFrom($data['email'], $data['name']); 
+    $mail->addAddress($_ENV['ADMIN_EMAIL'], 'Admin'); 
 
     // Content
     $mail->isHTML(true);
