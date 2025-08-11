@@ -16,10 +16,7 @@ export default [
       index("./routes/stories/index.tsx"),
       route(":id", "./routes/stories/[id].tsx"),
     ]),
+    route("pets", "./routes/pets.tsx"),
     route("admin", "./routes/admin.tsx"),
-    ...prefix("pets", [
-      index("./routes/pets/index.tsx"),
-      route(":id", "./routes/pets/[id].tsx"),
-    ]),
   ]),
 ] satisfies RouteConfig;
